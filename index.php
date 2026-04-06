@@ -147,21 +147,6 @@ $result = $conn->query($query);
 
 <script>
 
-function filterCat(cat) {
-    let cards = document.getElementsByClassName('card');
-    let btns = document.getElementsByClassName('tab-btn');
-
-    for (let btn of btns) btn.classList.remove('active');
-    event.currentTarget.classList.add('active');
-
-    for (let i = 0; i < cards.length; i++) {
-        if (cat === 'all') {
-            cards[i].style.display = "";
-        } else {
-            cards[i].style.display = (cards[i].getAttribute('data-category') === cat) ? "" : "none";
-        }
-    }
-}
 
 function copyText(id) {
     var text = document.getElementById(id).innerText;
