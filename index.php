@@ -82,7 +82,7 @@ if ($search != '') {
     <div class="top-section">
         <div class="box">
             <h3>🔍 Quick Search</h3>
-            <input type="text" id="searchInput" onkeyup="searchPrompts()" placeholder="Search by title, category, or text...">
+            <form method="GET">     <input type="text" name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" placeholder="Search by title, category, or text..."> </form>
             <p style="font-size: 12px; color: #666;">Searching across all categories instantly.</p>
         </div>
 
