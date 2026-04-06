@@ -37,7 +37,7 @@ if ($search != '') {
 }
 
 if ($category != '') {
-    $query .= " AND category='$category'";
+    $query .= " AND TRIM(LOWER(category)) = TRIM(LOWER('$category'))";
 }
 
 $query .= " ORDER BY id DESC";
