@@ -28,7 +28,7 @@ if (isset($_GET['delete'])) {
 
 // 4. FETCH DATA
 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
-$category = isset($_GET['category']) ? $conn->real_escape_string($_GET['category']) : '';
+$category = isset($_GET['category']) ? $_GET['category'] : '';
 
 $query = "SELECT * FROM my_prompts WHERE 1";
 
