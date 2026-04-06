@@ -50,34 +50,175 @@ $result = $conn->query($query);
 <head>
     <title>Prompt Library</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 20px; }
-        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        h1 { color: #1a73e8; text-align: center; margin-bottom: 30px; }
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background: #f0f2f5; 
+  padding: 15px; 
+}
 
-        .top-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .box { background: #fff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; }
+.container { 
+  max-width: 1000px; 
+  margin: auto; 
+  background: white; 
+  padding: 20px; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+}
 
-        input, textarea, select { width: 100%; margin-bottom: 12px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn-save { background: #34a853; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
+h1 { 
+  color: #1a73e8; 
+  text-align: center; 
+  margin-bottom: 15px; 
+  font-size: 24px;
+}
 
-        #searchInput { border: 2px solid #1a73e8; font-size: 16px; }
+.top-section { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 12px; 
+  margin-bottom: 15px; 
+}
 
-        .tab-menu { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-        .tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: #e8f0fe; color: #1a73e8; border-radius: 20px; font-weight: 500; }
-        .tab-btn.active { background: #1a73e8; color: white; }
+.box { 
+  background: #fff; 
+  padding: 12px; 
+  border: 1px solid #e0e0e0; 
+  border-radius: 10px; 
+}
 
-        .prompt-list { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .card { background: white; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px; transition: 0.3s; }
-        .card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .card-cat { font-size: 12px; color: #70757a; text-transform: uppercase; letter-spacing: 1px; }
-        .card-title { font-size: 18px; font-weight: bold; margin: 8px 0; color: #202124; }
-        .card-text { background: #f8f9fa; padding: 15px; border-radius: 8px; color: #3c4043; border: 1px dashed #dadce0; white-space: pre-wrap; margin-bottom: 15px; }
+input, textarea, select { 
+  width: 100%; 
+  margin-bottom: 10px; 
+  padding: 8px; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-sizing: border-box; 
+  font-size: 14px;
+}
 
-        .card-btns { display: flex; align-items: center; gap: 12px; border-top: 1px solid #eee; pt: 15px; padding-top: 15px; }
-        .btn-copy { background: #1a73e8; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 500; }
-        .btn-edit { background: #5f6368; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; }
-        .btn-del { color: #d93025; text-decoration: none; font-size: 14px; font-weight: 500; }
-    </style>
+.btn-save { 
+  background: #34a853; 
+  color: white; 
+  border: none; 
+  padding: 10px; 
+  width: 100%; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-weight: bold; 
+}
+
+#searchInput { 
+  border: 2px solid #1a73e8; 
+  font-size: 14px; 
+}
+
+.tab-menu { 
+  display: flex; 
+  gap: 6px; 
+  margin-bottom: 10px; 
+  flex-wrap: wrap; 
+  border-bottom: 1px solid #ddd; 
+  padding-bottom: 6px; 
+}
+
+.tab-btn { 
+  padding: 6px 14px; 
+  cursor: pointer; 
+  border: none; 
+  background: #e8f0fe; 
+  color: #1a73e8; 
+  border-radius: 20px; 
+  font-weight: 500; 
+  font-size: 14px;
+}
+
+.tab-btn.active { 
+  background: #1a73e8; 
+  color: white; 
+}
+
+.prompt-list { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 12px; 
+}
+
+.card { 
+  background: white; 
+  border: 1px solid #e0e0e0; 
+  padding: 15px; 
+  border-radius: 10px; 
+  transition: 0.3s; 
+}
+
+.card:hover { 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
+
+.card-cat { 
+  font-size: 11px; 
+  color: #70757a; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+.card-title { 
+  font-size: 16px; 
+  font-weight: bold; 
+  margin: 6px 0; 
+  color: #202124; 
+}
+
+.card-text { 
+  background: #f8f9fa; 
+  padding: 12px; 
+  border-radius: 8px; 
+  color: #3c4043; 
+  border: 1px dashed #dadce0; 
+  white-space: pre-wrap; 
+  margin-bottom: 12px; 
+  font-size: 14px;
+}
+
+.card-btns { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  border-top: 1px solid #eee; 
+  padding-top: 10px; 
+}
+
+.btn-copy { 
+  background: #1a73e8; 
+  color: white; 
+  border: none; 
+  padding: 6px 12px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: 500; 
+  font-size: 13px;
+}
+
+.btn-edit { 
+  background: #5f6368; 
+  color: white; 
+  border: none; 
+  padding: 6px 12px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: 500; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 13px;
+}
+
+.btn-del { 
+  color: #d93025; 
+  text-decoration: none; 
+  font-size: 13px; 
+  font-weight: 500; 
+}
+</style>
 </head>
 <body>
 
