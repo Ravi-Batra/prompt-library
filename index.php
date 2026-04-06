@@ -27,7 +27,17 @@ if (isset($_GET['delete'])) {
 }
 
 // 4. FETCH DATA
-$result = $conn->query("SELECT * FROM my_prompts ORDER BY id DESC");
+$search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+
+if ($search != '') {
+    $result = $conn->query("SELECT * FROM my_prompts 
+        WHERE title LIKE '%$search%' 
+        OR category LIKE '%$search%' 
+        OR prompt_text LIKE '%$search%' 
+        ORDER BY id DESC");
+} else {
+    $result = $conn->query("SELECT * FROM my_prompts ORDER BY id DESC");
+}
 ?>
 
 <!DOCTYPE html>
