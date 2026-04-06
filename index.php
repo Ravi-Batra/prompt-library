@@ -106,11 +106,11 @@ if ($search != '') {
     </div>
 
     <div class="tab-menu">
-        <button class="tab-btn active" onclick="filterCat('all')">All</button>
-        <button class="tab-btn" onclick="filterCat('Google Ads')">Google Ads</button>
-        <button class="tab-btn" onclick="filterCat('Voice AI')">Voice AI</button>
-        <button class="tab-btn" onclick="filterCat('Landing Page')">Landing Page</button>
-        <button class="tab-btn" onclick="filterCat('APPS')">APPS</button>
+        <a href="?" class="tab-btn">All</a>
+        <a href="?category=Google Ads" class="tab-btn">Google Ads</a>
+        <a href="?category=Voice AI" class="tab-btn">Voice AI</a>
+        <a href="?category=Landing Page" class="tab-btn">Landing Page</a>
+        <a href="?category=APPS" class="tab-btn">APPS</a>
     </div>
 
     <div class="prompt-list" id="promptList">
