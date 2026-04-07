@@ -60,7 +60,7 @@ body {
   max-width: 1000px; 
   margin: auto; 
   background: white; 
-  padding: 20px; 
+  padding: 12px; 
   border-radius: 15px; 
   box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
 }
@@ -68,8 +68,8 @@ body {
 h1 { 
   color: #1a73e8; 
   text-align: center; 
-  margin-bottom: 15px; 
-  font-size: 24px;
+  font-size: 18px;
+  margin: 0 0 6px 0;
 }
 
 .top-section { 
@@ -83,9 +83,9 @@ h1 {
 
 .box { 
   background: #fff; 
-  padding: 12px; 
+  padding: 6px; 
   border: 1px solid #e0e0e0; 
-  border-radius: 10px; 
+  border-radius: 6px; 
 }
 
 input, textarea, select { 
@@ -225,11 +225,11 @@ input, textarea, select {
 <body>
 
 <div class="container">
-    <h1>🚀 Prompt Library</h1>
+    <h1>Prompt Library</h1>
 
     <div class="top-section">
         <div class="box">
-            <h3>🔍 Quick Search</h3>
+            <h3>Quick Search</h3>
             <form method="GET">
     <input type="text" name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" placeholder="Search by title, category, or text...">
 </form>
@@ -237,7 +237,7 @@ input, textarea, select {
         </div>
 
         <div class="box">
-            <h3>➕ Add New</h3>
+            <h3>Add New</h3>
             <form method="POST">
                 <select name="category" required>
                     <option value="Google Ads">Google Ads</option>
