@@ -75,8 +75,10 @@ h1 {
 .top-section { 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
-  gap: 12px; 
-  margin-bottom: 15px; 
+  .top-section {
+   gap: 6px;
+   margin-bottom: 6px;
+} 
 }
 
 .box { 
@@ -88,7 +90,7 @@ h1 {
 
 input, textarea, select { 
   width: 100%; 
-  margin-bottom: 10px; 
+  margin-bottom: 6px; 
   padding: 8px; 
   border: 1px solid #ddd; 
   border-radius: 8px; 
