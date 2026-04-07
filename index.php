@@ -269,13 +269,9 @@ input, textarea, select {
 
                 <span class="card-cat"><?php echo $row['category']; ?></span>
 
-<?php
-$lines = explode("\n", $row['prompt_text']);
-$summary = trim($lines[0]);
-?>
 
-<div class="card-title"><?php echo htmlspecialchars($summary); ?></div>
 
+<div class="card-title"><?php echo htmlspecialchars($row['title']); ?></div>
 <div class="card-text" id="full<?php echo $row['id']; ?>" style="display:none;">
     <?php echo nl2br(htmlspecialchars($row['prompt_text'])); ?>
 </div>
