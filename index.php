@@ -272,12 +272,15 @@ input, textarea, select {
 
 
 <div class="card-title"><?php echo htmlspecialchars($row['title']); ?></div>
+ <div class="card-text" id="preview<?php echo $row['id']; ?>">
+    <?php echo htmlspecialchars(substr($row['prompt_text'], 0, 80)); ?>...
+</div>                                                   
 <div class="card-text" id="full<?php echo $row['id']; ?>" style="display:none;">
     <?php echo nl2br(htmlspecialchars($row['prompt_text'])); ?>
 </div>
                 <div class="card-btns">
                     <button class="btn-copy" onclick="copyText('full<?php echo $row['id']; ?>')">Copy Prompt</button>
-                    <button class="btn-copy" onclick="toggleView('full<?php echo $row['id']; ?>')">View</button>
+                    <button class="btn-copy" onclick="toggleView('full<?php echo $row['id']; ?>'); toggleView('preview<?php echo $row['id']; ?>');">View</button>
                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn-edit">Edit</a>
                     
                     <a href="?delete=<?php echo $row['id']; ?>" class="btn-del" onclick="return confirm('Delete forever?')">Delete</a>
