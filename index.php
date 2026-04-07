@@ -269,13 +269,23 @@ input, textarea, select {
 
                 <span class="card-cat"><?php echo $row['category']; ?></span>
 
-                <div class="card-title"><?php echo $row['title']; ?></div>
+                <div class="card-title"><?php echo <?php
+$lines = explode("\n", $row['prompt_text']);
+$summary = trim($lines[0]);
+?>
 
-                <div class="card-text" id="p<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['prompt_text']); ?></div>
+<?php
+$lines = explode("\n", $row['prompt_text']);
+$summary = trim($lines[0]);
+?>                                                    
+<div class="card-title"><?php echo htmlspecialchars($summary); ?></div>
 
+<div class="card-text" id="full<?php echo $row['id']; ?>" style="display:none;">
+    <?php echo nl2br(htmlspecialchars($row['prompt_text'])); ?>
+</div>
                 <div class="card-btns">
-                    <button class="btn-copy" onclick="copyText('p<?php echo $row['id']; ?>')">Copy Prompt</button>
-                    
+                    <button class="btn-copy" onclick="copyText('full<?php echo $row['id']; ?>')">Copy Prompt</button>
+                    <button class="btn-copy" onclick="toggleView('full<?php echo $row['id']; ?>')">View</button>
                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn-edit">Edit</a>
                     
                     <a href="?delete=<?php echo $row['id']; ?>" class="btn-del" onclick="return confirm('Delete forever?')">Delete</a>
@@ -295,6 +305,14 @@ function copyText(id) {
     var text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
     alert("Copied!");
+}
+    function toggleView(id) {
+    var el = document.getElementById(id);
+    if (el.style.display === "none") {
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
 }
 </script>
 
