@@ -222,6 +222,13 @@ input, textarea, select {
 
 </div>
 
+<div class="tab-menu">
+    <a href="?" class="tab-btn">All</a>
+    <a href="?category=Google Ads" class="tab-btn">Google Ads</a>
+    <a href="?category=Voice AI" class="tab-btn">Voice AI</a>
+    <a href="?category=Landing Page" class="tab-btn">Landing Page</a>
+    <a href="?category=APPS" class="tab-btn">APPS</a>
+</div>
 <div class="prompt-list">
 
 <?php while($row = $result->fetch_assoc()) { ?>
@@ -254,7 +261,7 @@ if (!empty($row['output_format'])) $fullPrompt .= "Output Format:\n".$row['outpu
 <button class="btn-copy" onclick="copyText('full<?php echo $row['id']; ?>')">Copy Prompt</button>
 <button class="btn-copy" onclick="toggleView(<?php echo $row['id']; ?>, this)">View</button>
 <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn-edit">Edit</a>
-<a href="?delete=<?php echo $row['id']; ?>" class="btn-del">Delete</a>
+<a href="?delete=<?php echo $row['id']; ?>" class="btn-del" onclick="return confirm('Delete forever?')">Delete</a>
 </div>
 
 </div>
