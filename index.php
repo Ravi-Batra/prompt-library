@@ -36,7 +36,7 @@ if ($search != '') {
 }
 
 if ($category != '') {
-    $query .= " AND TRIM(LOWER(category)) = TRIM(LOWER('$category'))";
+    $query .= " AND LOWER(TRIM(category)) = LOWER(TRIM('$category'))";
 }
 
 $query .= " ORDER BY id DESC";
@@ -123,14 +123,11 @@ input, textarea, select { width:100%; margin-bottom:6px; padding:8px; border-rad
 
 <!-- Tabs -->
 <div class="tab-menu">
-<?php
-$tabs = ["All"=>"", "Google Ads"=>"Google Ads", "Voice AI"=>"Voice AI", "Landing Page"=>"Landing Page", "APPS"=>"APPS"];
-foreach($tabs as $label=>$val){
-    $active = ($category == $val || ($val=="" && $category=="")) ? "active" : "";
-    $link = $val=="" ? "?" : "?category=".urlencode($val);
-    echo "<a href='$link' class='tab-btn $active'>$label</a>";
-}
-?>
+    <a href="?" class="tab-btn <?php if($category=='') echo 'active'; ?>">All</a>
+    <a href="?category=Google Ads" class="tab-btn <?php if($category=='Google Ads') echo 'active'; ?>">Google Ads</a>
+    <a href="?category=Voice AI" class="tab-btn <?php if($category=='Voice AI') echo 'active'; ?>">Voice AI</a>
+    <a href="?category=Landing Page" class="tab-btn <?php if($category=='Landing Page') echo 'active'; ?>">Landing Page</a>
+    <a href="?category=APPS" class="tab-btn <?php if($category=='APPS') echo 'active'; ?>">APPS</a>
 </div>
 
 <?php while($row = $result->fetch_assoc()) { ?>
